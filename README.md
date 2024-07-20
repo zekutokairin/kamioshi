@@ -1,5 +1,4 @@
-# kamioshi
+# Kamioshi
 
-A command center for downloading, re-encoding VODs from Youtube, Twitch, and VStream.
+An easy solution for archiving and preserving your favorite VTuber's work.
 
-This is hopefully to make things easier for clipping, highlights, and so on.
