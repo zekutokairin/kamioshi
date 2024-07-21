@@ -15,13 +15,6 @@ YT_BASE_FEEDURL = "https://www.youtube.com/feeds/videos.xml?channel_id="
 # Milestone 2
 # - Download in mobile quality
 
-"""
-def parseYoutubeFeed(url):
-    if hasattr(ssl, '_create_unverified_context'):
-        ssl._create_default_https_context = ssl._create_unverified_context
-        #xml = 'https://news.google.com/news?q=fashion&output=rss'
-        feed = feedparser.parse(rss)
-"""
 def initializeDB():
     # TODO
     pass

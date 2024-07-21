@@ -11,8 +11,10 @@ with YoutubeDL(params={"ignoreerrors":True}) as ydl:
     1 Live
     2 Shorts
     """
-    # TODO: Get estimated file size for shorts?
-    # TODO: See how we can get playlists?
+    # TODO: Download movies in Playlists, add entry to DB
+    # TODO: Download movies in Live, add entry to DB
+    # TODO: Download movies in Shorts, add entry to DB
+    # TODO: Go through all movies in channel, download IFF not in DB
     #info = ydl.extract_info("https://www.youtube.com/@HizakiGamma", download=False)
     info = ydl.extract_info("https://www.youtube.com/@HizakiGamma/playlists", download=False)
 
