@@ -11,12 +11,9 @@ YT_BASE_FEEDURL = "https://www.youtube.com/feeds/videos.xml?channel_id="
 # Milestone 1
 # - Parse Youtube channel content as Feed
 # - Download videos in best quality/codec (vp9 or higher)
+# - Find a way to sensibliy sort the files into subdirectories
 # Milestone 2
 # - Download in mobile quality
-# Milestone 3
-# - Using DHT/Kademlia, find peers
-# - Exchange videos 
-# - For Youtube videos, we use the "id" field in the XML e.g. "yt:video:DnCyqDyp-NQ"
 
 """
 def parseYoutubeFeed(url):
@@ -25,6 +22,9 @@ def parseYoutubeFeed(url):
         #xml = 'https://news.google.com/news?q=fashion&output=rss'
         feed = feedparser.parse(rss)
 """
+def initializeDB():
+    # TODO
+    pass
 
 def get_channel_id(username):
     # Get channel ID from provided name/URL

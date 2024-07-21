@@ -1,0 +1,23 @@
+Proposal for VTuber archive catalog:
+version 0.1
+
+Atom Format
+Similar to Youtube feed XML
+New Fields:
+    - Date of catalog creation
+    - Magnet Link
+    - 
+
+## Archive Layout and Filenames
+
+Playlists/
+    Playlist1
+        YYYYMMDD - Some Video Title 1
+        YYYYMMDD - Some Video Title 2
+    Playlist2
+        YYYYMMDD - Some Video Title 3
+    
+Videos/
+    YYYYMMDD - Some Video not in a playlist
+Live/
+    YYYYMMDD - Some Livestream not in a playlist
