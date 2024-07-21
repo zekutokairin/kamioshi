@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-import feedparser
 
 from yt_dlp import YoutubeDL
-#import yt_dlp as yt
-#YoutubeDL = yt.YoutubeDL()
+import feedparser
+import sqlite3
 
 YT_BASE_FEEDURL = "https://www.youtube.com/feeds/videos.xml?channel_id="
 
@@ -16,8 +15,11 @@ YT_BASE_FEEDURL = "https://www.youtube.com/feeds/videos.xml?channel_id="
 # - Download in mobile quality
 
 def initializeDB():
-    # TODO
-    pass
+    conn = sqlite3.connect("vtuber_archive.db")
+    c = conn.cursor()
+    c.execute("CREATE TABLE IF NOT EXISTS vtubers (id TEXT PRIMARY KEY, name TEXT)")
+    c.execute("CREATE TABLE IF NOT EXISTS 
+
 
 def get_channel_id(username):
     # Get channel ID from provided name/URL
