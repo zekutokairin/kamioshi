@@ -18,8 +18,9 @@ def initializeDB():
     conn = sqlite3.connect("vtuber_archive.db")
     c = conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS vtubers (id TEXT PRIMARY KEY, name TEXT)")
-    c.execute("CREATE TABLE IF NOT EXISTS 
-
+    c.execute("CREATE TABLE IF NOT EXISTS videos (id TEXT PRIMARY KEY, title TEXT, upload_date DATETIME")
+    c.execute("CREATE TABLE IF NOT EXISTS livestreams (id TEXT PRIMARY KEY, title TEXT, upload_date DATETIME")
+    c.execute("CREATE TABLE IF NOT EXISTS shorts (id TEXT PRIMARY KEY, title TEXT, upload_date DATETIME")
 
 def get_channel_id(username):
     # Get channel ID from provided name/URL
@@ -33,18 +34,18 @@ def addYoutubeChannel(url):
     # TODO: Parse results and create entries in the DB
     pass
 
-# TODO: This is for published videos-- can we possibly get Lives as well?
+# TODO: Is doing this even a good idea? TBH there's already a good job being done by yt-dlp retrieving all video info
 def parseChannelRSS(channel_id):
     d = feedparser.parse("https://www.youtube.com/feeds/videos.xml?channel_id=" + channel_id)
     for entry in d.entries:
         print("ID: %s\tTitle: %s\tURL:%s" % (entry.id, entry.title, entry.link))
 
 def main():
+    # TODO: start with URL
     username = "zekutokairin"
     channel_id = get_channel_id(username)
 
     parseChannelRSS(channel_id)
-    
     # https://www.youtube.com/feeds/videos.xml?channel_id=UC2TveK-Kfbp8Wh3PeBh2i6A
     #addYoutubeChannel("https://www.youtube.com/@zekutokairin")
 
