@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
 
+import os
+import sys
 from yt_dlp import YoutubeDL
 
-def enqueue_videos(info, prefix):
-    # In the case of playlists, the prefix is the Playlist Title
-    # Otherwise, prefix is either Videos, Shorts, or Live
-    # TODO
-    pass
+def rename(video):
+    """
+    In case the download filename has been botched, this can fix the format
+    """
+    # Of all things, it's the '/' character being different that's throwing us off here.
+    # We may just be able to strip out the Username title part and just go by title alone maybe
+    local_path = "/mnt/e/Hizaki_Gamma"
 
-def download_playlists(playlist_info):
-    
+    sys.exit(1)
 
-def parse_channel(url):
+def parse_channel():
     with YoutubeDL(params={"ignoreerrors":True}) as ydl:
-        # TODO: Download movies in Playlists, add entries to DB
-        playlist_info = ydl.extract_info("https://www.youtube.com/@HizakiGamma/playlists", download=False)
-        download_playlists(playlist_info)
+        
+        #3playlist_info = ydl.extract_info("https://www.youtube.com/watch?v=vWLz0vajpz4&list=PLDHlO0MJdqvXpYyf_DKaNgOYaKklXLJVv", download=False)
+        for video in playlist_info['entries']:
+            k
+        #playlist_info = ydl.extract_info("https://www.youtube.com/@totalsizetest7968", download=False)
+        #download_playlists(playlist_info)
 
-        channel_info = ydl.extract_info("https://www.youtube.com/@HizakiGamma/playlists", download=False)
-
+        #channel_info = ydl.extract_info("https://www.youtube.com/@HizakiGamma/playlists", download=False)
         """
         This returns an info object
         info['entries'] appears to have 3 components, I think:
@@ -26,13 +31,11 @@ def parse_channel(url):
         1 Live
         2 Shorts
         """
-        # TODO: Download movies in Live, add entry to DB 
-        # TODO: Download movies in Shorts, add entry to DB
-        # TODO: Go through all movies in channel
-        #info = ydl.extract_info("https://www.youtube.com/@HizakiGamma", download=False)
-
         import code
         code.interact(local=locals())
+
+if __name__ == "__main__":
+    parse_channel()
 
 # Code to get URLs of videos from playlist
 """
