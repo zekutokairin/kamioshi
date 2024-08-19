@@ -1,8 +1,8 @@
 #!/bin/bash
 
-
 # TODO: help and usage
-URL="https://www.youtube.com/@KunaiNakasato"
+URL=$1
+#URL="https://www.youtube.com/@KunaiNakasato"
 #URL="https://www.youtube.com/@HizakiGamma"
 #URL="https://www.youtube.com/@ZekuTokairin"
 
@@ -17,7 +17,6 @@ STREAMS_URL="$URL/streams"
 echo "CHANNEL NAME IS: $CHANNEL_NAME"
 echo "Playlist NAME IS: $PLAYLIST_URL"
 
-
 # Download Shorts
 echo "Downloading Shorts..."
 yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[height<=?1080]" --yes-playlist --write-auto-subs --embed-subs --embed-chapters --embed-thumbnail -o "%(channel)s/Shorts/%(upload_date)s - %(title)s [%(id)s].%(ext)s" --embed-chapters --download-archive $CHANNEL_NAME.txt $SHORTS_URL
@@ -27,11 +26,10 @@ echo "Downloading Playlists..."
 yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[height<=?1080]" --yes-playlist --write-auto-subs --embed-subs --embed-chapters --embed-thumbnail -o "%(channel)s/Playlists/%(playlist_title)s/%(upload_date)s - %(title)s [%(id)s].%(ext)s" --embed-chapters --download-archive $CHANNEL_NAME.txt $PLAYLIST_URL
 
 # Download Videos
-echo "Downloading Playlists..."
+echo "Downloading Videos..."
 yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[height<=?1080]" --yes-playlist --write-auto-subs --embed-subs --embed-chapters --embed-thumbnail -o "%(channel)s/Videos/%(upload_date)s - %(title)s [%(id)s].%(ext)s" --embed-chapters --download-archive $CHANNEL_NAME.txt $VIDEOS_URL
 
 # Download Livestreams
-#echo "Downloading Livestreams..."
+echo "Downloading Livestreams..."
 yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[height<=?1080]" --yes-playlist --write-auto-subs --embed-subs --embed-chapters --embed-thumbnail -o "%(channel)s/Livestreams/%(upload_date)s - %(title)s [%(id)s].%(ext)s" --embed-chapters --download-archive $CHANNEL_NAME.txt $STREAMS_URL
-
 
