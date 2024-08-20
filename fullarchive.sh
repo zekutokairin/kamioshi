@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# TODO: help and usage
+# Usage Example: fullarchive.sh "https://www.youtube.com/@HizakiGamma"
 URL=$1
-#URL="https://www.youtube.com/@KunaiNakasato"
-#URL="https://www.youtube.com/@HizakiGamma"
-#URL="https://www.youtube.com/@ZekuTokairin"
 
 DOMAIN=$(echo ${URL} | awk -F'/' '{print $1FS$2FS$3}')    
 CHANNEL_NAME=$(echo ${URL} | awk -F'/@' '{print $2}')    
@@ -13,7 +10,6 @@ SHORTS_URL="$URL/shorts"
 VIDEOS_URL="$URL/videos"
 STREAMS_URL="$URL/streams"
 
-# TODO: Split the url automatically to get the archive filename
 echo "CHANNEL NAME IS: $CHANNEL_NAME"
 echo "Playlist NAME IS: $PLAYLIST_URL"
 
