@@ -3,7 +3,7 @@
 An easy solution for archiving and preserving your favorite VTuber's work.
 
 # Usage
-`fullarchive.sh https://youtube.com/ https://www.youtube.com/@SomeUser`
+`fullarchive.sh https://www.youtube.com/@SomeUser`
 
 # What It Does
 
