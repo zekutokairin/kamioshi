@@ -2,17 +2,14 @@
 
 An easy solution for archiving and preserving your favorite VTuber's work.
 
-Initially, I'd tried approaches that were using queues, a sqlite3 database, and so on.
+# Usage
+`fullarchive.sh https://youtube.com/ https://www.youtube.com/@SomeUser`
 
-I found that these overcomplicated the whole thing. Here's my new approach:
+# What It Does
 
-1. Save filenames with upload dates YYYYMMDD for chronological order.
-2. Save filenames with video ID for deduping.
-3. Use the yt-lp archive file per-channel in case the channel is still going.
+1. Saves filenames with upload dates YYYYMMDD for chronological order.
+2. Saves filenames with video ID for deduping.
+3. Use the yt-lp archive text file per-channel so you can resume archives.
 4. Save Playlists to ChannelName/Playlistname directory for convenient watching.
-5. Save Videos to Videos/ directory IF they are not already present.
-6. Save Shorts to a Shorts directory IF they are not already present.
-7. Create torrent from command line.
-
-# Future Tasks
-- Fix totalsize to work with livestreams if possible
+5. Save Videos to ChannelName/Videos/ directory IF they not already present.
+6. Save Shorts to a ChannelName/Shorts directory IF they not already present.
