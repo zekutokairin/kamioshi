@@ -19,35 +19,25 @@ YT_BASE_FEEDURL = "https://www.youtube.com/feeds/videos.xml?channel_id="
 # Milestone 2
 # - Download in mobile quality
 
-def get_channel_id(username):
+def get_livestream_chaturl(username):
     # Get channel ID from provided name/URL
-    with YoutubeDL({'playlist_items':'1'}) as ydl:
-        info = ydl.extract_info("https://www.youtube.com/@%s" % username, download=False)
-        import code
+    i = 0
+    with YoutubeDL({'playlist_items':str(i)}) as ydl:
+        info = ydl.extract_info("https://www.youtube.com/@%s/streams" % username, download=False)
+        stream = info['entries'][0]
+        if
+        streamid = stream['id']
+        chaturl = "https://www.youtube.com/live_chat?is_popout=1&v=%s" % streamid
+        return chaturl
 
-        code.interact(local=locals())
-    title = info['title']
-    channel_id = info['channel_id']
-    return channel_id
-
-def addYoutubeChannel(url):
-    # TODO: Parse results and create entries in the DB
-    pass
-
-# TODO: Is doing this even a good idea? TBH there's already a good job being done by yt-dlp retrieving all video info
-def parseChannelRSS(channel_id):
-    d = feedparser.parse("https://www.youtube.com/feeds/videos.xml?channel_id=" + channel_id)
-    for entry in d.entries:
-        print("ID: %s\tTitle: %s\tURL:%s" % (entry.id, entry.title, entry.link))
-
-    import code
 
 def main():
     # TODO: start with URL
     username = "zekutokairin"
-    channel_id = get_channel_id(username)
+    chaturl = get_livestream_chaturl(username)
+    print(chaturl)
 
-    parseChannelRSS(channel_id)
+
     # https://www.youtube.com/feeds/videos.xml?channel_id=UC2TveK-Kfbp8Wh3PeBh2i6A
     #addYoutubeChannel("https://www.youtube.com/@zekutokairin")
 
