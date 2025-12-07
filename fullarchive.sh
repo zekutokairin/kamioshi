@@ -29,3 +29,6 @@ yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[h
 echo "Downloading Livestreams..."
 yt-dlp --verbose -f "bestvideo[vcodec!~='vp0?9'][height<=?1080]+bestaudio/best[height<=?1080]" --yes-playlist --write-auto-subs --embed-subs --embed-chapters --embed-thumbnail -o "%(channel)s/Livestreams/%(upload_date)s - %(title)s [%(id)s].%(ext)s" --embed-chapters --download-archive $CHANNEL_NAME.txt $STREAMS_URL
 
+# TODO: Figure out if we're okay remuxing everything as an mp4 for Plex reasons
+# TODO: Remove the VP09 constraint. Stuff for mobile can be transcoded as h265 and 720p maybe
+# TODO: get Podcasts also
